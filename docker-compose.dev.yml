@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:latest
-    container_name: db_chat
+    container_name: db_chat_dev
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
