@@ -2,10 +2,10 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY pyproject.toml .
 
 RUN pip install uv
-RUN uv pip install --no-cache-dir -r requirements.txt
+RUN uv pip sync --no-cache-dir pyproject.toml
 
 COPY ./app /app/app
 
