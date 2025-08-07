@@ -7,7 +7,7 @@ from app.schema.user_schema import UserInRoom, UserRead
 
 class RoomBase(BaseSchema):
     name: str
-    is_group: bool = True
+    image_url: str
 
 class RoomCreate(RoomBase):
     participant: List[UserInRoom]

@@ -3,7 +3,7 @@ from typing import List, Optional
 
 from sqlmodel import Field, Relationship, SQLModel
 
-from app.utils import generate_id
+from app.utils.generate_id import generate_id
 
 
 class Role(str, enum.Enum):
@@ -38,7 +38,6 @@ class Rooms(SQLModel, table=True):
     id: str = Field(default_factory=generate_id, primary_key=True)
     name: str = Field(default="Unname")
     image_url: Optional[str] = None
-    is_group: bool = Field(default=True)
 
     participants: List[Users] = Relationship(back_populates="rooms", link_model=RoomParticipants)
     messages: List["Messages"] = Relationship(back_populates="room")

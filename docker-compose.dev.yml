@@ -21,6 +21,18 @@ services:
       - 5430:80
     depends_on:
       - db
+  
+  backend:
+    build: . 
+    container_name: backend_chat
+    env_file:
+      - .env.production 
+    ports:
+      - "8888:8000"  
+    depends_on:
+      - db  
+    volumes:
+      - ./app:/app/app
 
 volumes:
   pg_data:
